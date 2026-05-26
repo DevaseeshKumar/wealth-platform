@@ -11,16 +11,8 @@ from "../controllers/equityHoldingController";
 
 const router = express.Router();
 
-router.get(
-    "/:investorId",
-    verifyToken,
-    getEquityHoldings
-);
+router.get("/:investorId", verifyToken,getEquityHoldings);
 
-router.post(
-    "/",
-    verifyToken,
-    createEquityHolding
-);
+router.post("/",verifyToken,createEquityHolding);
 
 export default router;

@@ -10,38 +10,26 @@ export interface MarketPriceData {
 }
 
 const fetchMarketPrices = async () => {
-
     const sql = `
         SELECT *
         FROM equity_market_prices
         ORDER BY company_name
     `;
-
-    const result =
-        await client.query(sql);
-
+    const result = await client.query(sql);
     return result.rows;
 };
 
-const fetchStockBySymbol = async (
-    stockSymbol: string
-) => {
-
+const fetchStockBySymbol = async (stockSymbol: string) => {
     const sql = `
         SELECT *
         FROM equity_market_prices
         WHERE stock_symbol = $1
     `;
-
-    const result =
-        await client.query(sql, [stockSymbol]);
-
+    const result = await client.query(sql, [stockSymbol]);
     return result.rows[0];
 };
 
-const insertMarketPrice = async (
-    data: MarketPriceData
-) => {
+const insertMarketPrice = async (data: MarketPriceData) => {
 
     const sql = `
         INSERT INTO equity_market_prices

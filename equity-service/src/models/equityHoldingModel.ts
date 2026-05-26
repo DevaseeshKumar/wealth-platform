@@ -73,10 +73,7 @@ const fetchEquityHoldings = async (
     return result.rows;
 };
 
-const insertEquityHolding = async (
-    data: EquityHoldingData
-) => {
-
+const insertEquityHolding = async (data: EquityHoldingData) => {
     const sql = `
         INSERT INTO equity_holdings
         (
@@ -91,7 +88,6 @@ const insertEquityHolding = async (
 
         RETURNING *
     `;
-
     const values = [
         data.investor_id,
         data.stock_symbol,
@@ -100,10 +96,8 @@ const insertEquityHolding = async (
         data.current_market_price,
         data.exchange || "NSE"
     ];
-
     const result =
         await client.query(sql, values);
-
     return result.rows[0];
 };
 

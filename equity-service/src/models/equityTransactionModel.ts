@@ -68,16 +68,11 @@ const fetchEquityTransactions = async (
         ORDER BY et.executed_at DESC
     `;
 
-    const result =
-        await client.query(sql, [investorId]);
-
+    const result = await client.query(sql, [investorId]);
     return result.rows;
 };
 
-const insertEquityTransaction = async (
-    data: EquityTransactionData
-) => {
-
+const insertEquityTransaction = async (data: EquityTransactionData) => {
     const sql = `
         INSERT INTO equity_transactions
         (
@@ -97,7 +92,6 @@ const insertEquityTransaction = async (
 
         RETURNING *
     `;
-
     const values = [
         data.investor_id,
         data.stock_symbol,

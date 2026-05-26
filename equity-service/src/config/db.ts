@@ -16,18 +16,14 @@ const client = new Pool({
 
 client.connect()
     .then(() => {
-
         console.log(
             " Database Connected Successfully"
         );
-
     })
     .catch((err) => {
-
         console.log(
             " Database Connection Failed"
         );
-
         console.log(err);
     });
 

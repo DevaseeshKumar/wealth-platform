@@ -12,22 +12,12 @@ from "../controllers/marketPriceController";
 
 const router = express.Router();
 
-router.get(
-    "/",
-    // verifyToken,
-    getMarketPrices
+router.get("/",// verifyToken,
+getMarketPrices
 );
 
-router.get(
-    "/:symbol",
-    verifyToken,
-    getStockBySymbol
-);
+router.get("/:symbol",verifyToken,getStockBySymbol);
 
-router.post(
-    "/",
-    verifyToken,
-    createMarketPrice
-);
+router.post("/",verifyToken,createMarketPrice);
 
 export default router;
