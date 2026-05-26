@@ -18,14 +18,14 @@ client.connect()
     .then(() => {
 
         console.log(
-            " PostgreSQL Connected Successfully"
+            " Database Connected Successfully"
         );
 
     })
     .catch((err) => {
 
         console.log(
-            " PostgreSQL Connection Failed"
+            " Database Connection Failed"
         );
 
         console.log(err);
